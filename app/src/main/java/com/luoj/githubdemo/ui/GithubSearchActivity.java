@@ -8,13 +8,10 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.elvishew.xlog.XLog;
 import com.luoj.githubdemo.Injection;
@@ -49,27 +46,10 @@ public class GithubSearchActivity extends AppCompatActivity {
 
         viewModel.networkErrors.observe(this, s -> Toast.makeText(GithubSearchActivity.this, "Request data failed.", Toast.LENGTH_SHORT).show());
 
-        setupScrollListener();
-
-        //页面恢复时恢复数据
         String lastQuery = (null != savedInstanceState ? savedInstanceState.getString(LAST_SEARCH_QUERY, "Android") : "Android");
         viewModel.searchRepos(lastQuery);
 
         initSearchView(lastQuery);
-    }
-
-    private void setupScrollListener() {
-        LinearLayoutManager layoutManager = (LinearLayoutManager) binding.list.getLayoutManager();
-        binding.list.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int totalItemCount = layoutManager.getItemCount();
-                int visibleItemCount = layoutManager.getChildCount();
-                int lastVisibleItem = layoutManager.findLastVisibleItemPosition();
-                viewModel.listScrolled(visibleItemCount, lastVisibleItem, totalItemCount);
-            }
-        });
     }
 
     /**

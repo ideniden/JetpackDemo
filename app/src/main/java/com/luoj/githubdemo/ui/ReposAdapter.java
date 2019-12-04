@@ -6,19 +6,28 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.paging.PagedList;
+import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 
+import com.elvishew.xlog.XLog;
 import com.luoj.githubdemo.model.Repo;
 import com.luoj.jetpackdemo.R;
 import com.luoj.jetpackdemo.databinding.ItemGithubRepoBinding;
 
-public class ReposAdapter extends ListAdapter<Repo, RepoViewHolder> {
+public class ReposAdapter extends PagedListAdapter<Repo, RepoViewHolder> {
 
     protected ReposAdapter() {
         super(REPO_COMPARATOR);
         setHasStableIds(true);
+    }
+
+    @Override
+    public void submitList(@Nullable PagedList<Repo> pagedList) {
+        XLog.d("submitList -> " + (pagedList != null ? pagedList.hashCode() : "null"));
+        super.submitList(pagedList);
     }
 
     @Override

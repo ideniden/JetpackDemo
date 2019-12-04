@@ -1,0 +1,6 @@
+参考CodeLabs：http://clmirror.storage.googleapis.com/codelabs/android-paging/index.html?index=..%2F..index#0
+
+知识点
+1.基于Android MVVM架构和Jitpack组件集构建Google标准应用架构
+2.项目结构
+3.

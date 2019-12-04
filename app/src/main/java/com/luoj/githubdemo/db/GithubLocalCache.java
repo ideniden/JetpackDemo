@@ -1,7 +1,7 @@
 package com.luoj.githubdemo.db;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 
 import com.elvishew.xlog.XLog;
 import com.luoj.githubdemo.model.Repo;
@@ -25,7 +25,7 @@ public class GithubLocalCache {
      * @param queryString
      * @return
      */
-    public LiveData<List<Repo>> reposByName(@NonNull String queryString) {
+    public DataSource.Factory<Integer, Repo> reposByName(@NonNull String queryString) {
         StringBuilder sb = new StringBuilder();
         sb.append("%");
         sb.append(queryString.replace(" ", "%"));

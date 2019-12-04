@@ -30,9 +30,7 @@ public class AppContext extends Application {
     public void onCreate() {
         super.onCreate();
 
-        String tag = "JetpackDemo";
-        String logDirPath = Environment.getExternalStorageDirectory() + File.separator + tag + File.separator;
-        initLog(tag, logDirPath);
+        initLog("JetpackDemo");
 
         dataBase = Room.databaseBuilder(this, MyDataBase.class, "my.db")
                 .allowMainThreadQueries()
@@ -52,14 +50,15 @@ public class AppContext extends Application {
 
     }
 
-    void initLog(String tag, String logDirPath) {
+    void initLog(String appName) {
+        String logDirPath = Environment.getExternalStorageDirectory() + File.separator + appName + File.separator;
         File logDir = new File(logDirPath);
         if (!logDir.exists()) {
             logDir.mkdirs();
         }
         LogConfiguration config = new LogConfiguration.Builder()
                 .logLevel(LogLevel.ALL)
-                .tag(tag)                                  // 指定 TAG，默认为 "X-LOG"
+                .tag(appName)                                  // 指定 TAG，默认为 "X-LOG"
 //                .t()                                                   // 允许打印线程信息，默认禁止
 //                .st(3)                                                 // 允许打印深度为2的调用栈信息，默认禁止
 //                .b()                                                   // 允许打印日志边框，默认禁止
@@ -70,12 +69,8 @@ public class AppContext extends Application {
 //                .backupStrategy(new MyBackupStrategy())              // 指定日志文件备份策略，默认为 FileSizeBackupStrategy(1024 * 1024)
                 .logFlattener(new PatternFlattener("{d yyyy-MM-dd HH:mm:ss} {L}/{t}:{m}"))                  // 指定日志平铺器，默认为 DefaultLogFlattener
                 .build();
-//        if (BuildConfig.DEBUG) {
         Printer androidPrinter = new AndroidPrinter();
         XLog.init(config, filePrinter, androidPrinter);
-//        } else {
-//            XLog.init(config, filePrinter);
-//        }
     }
 
 }

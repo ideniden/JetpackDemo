@@ -1,6 +1,6 @@
 package com.luoj.githubdemo.db;
 
-import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -18,6 +18,6 @@ public interface RepoDao {
 
     @Query("SELECT * FROM repos WHERE (name LIKE :queryString) OR (description LIKE " +
             ":queryString) ORDER BY stars DESC, name ASC")
-    LiveData<List<Repo>> reposByName(String queryString);
+    DataSource.Factory<Integer, Repo> reposByName(String queryString);
 
 }
