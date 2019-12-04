@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_user_list"
+    app:startDestination="@id/fragment_user_list">
+    <fragment
+        android:id="@+id/fragment_user_list"
+        android:name="com.luoj.jetpackdemo.ui.fragment.UserListFragment"
+        android:label="user_list"
+        tools:layout="@layout/fragment_user_list">
+        <action
+            android:id="@+id/action_user_list_to_info"
+            app:destination="@id/fragment_user_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_user_info"
+        android:name="com.luoj.jetpackdemo.ui.fragment.UserInfoFragment"
+        android:label="user_info"
+        tools:layout="@layout/fragment_user_info">
+        <argument
+            android:name="user"
+            app:argType="com.luoj.jetpackdemo.data.model.User" />
+    </fragment>
+</navigation>
