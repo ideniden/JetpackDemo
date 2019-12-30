@@ -1,8 +1,9 @@
 项目说明
 =========================
-参照CodeLabs的Paging示例（官方为Kotlin实现），使用Java完整实现网络带数据库缓存的分页列表加载<br>
+参照CodeLabs的Paging示例（官方为Kotlin实现），本项目将会使用Java完整实现网络带数据库缓存的分页列表加载。<br>
 所有使用的组件都基于Jetpack，并采用Google官方推荐的唯一可信数据源app架构。<br>
 项目中包含两个分支：master、paging_way，便于体现由传统实现向基于paging实现的演进过程。<br>
+<br>
 参考CodeLabs：http://clmirror.storage.googleapis.com/codelabs/android-paging/index.html?index=..%2F..index#0
 
 master分支
