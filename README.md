@@ -33,3 +33,7 @@ paging_way分支
 1.TextInputLayout组件<br>
 2.StaggeradGridLayoutManager（RecyclerView的瀑布流）<br>
 3.RecyclerView.Adapter的局部组件刷新：notify(... , Object payload)实现刷新列表项具体某个字段数据
+
+运行截图
+=========================
+![image](https://github.com/ideniden/JetpackDemo/blob/master/screenshot/paged_list.png)
