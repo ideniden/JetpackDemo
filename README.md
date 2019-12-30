@@ -1,6 +1,6 @@
 参考CodeLabs：http://clmirror.storage.googleapis.com/codelabs/android-paging/index.html?index=..%2F..index#0
 
-Master分支
+master分支
 =========================
 基于传统监听Scroll滚动触发分页加载，未使用到DataSource、PagedList、BoundaryCallback实现分页
 
