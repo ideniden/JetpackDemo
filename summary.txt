@@ -1,6 +1,6 @@
 参考CodeLabs：http://clmirror.storage.googleapis.com/codelabs/android-paging/index.html?index=..%2F..index#0
 
-网络带缓存的分页知识点
+网络带缓存的分页列表知识点
 1.基于Android MVVM架构和Jitpack组件集构建Google标准应用架构
 2.项目结构
 3.ViewModel
@@ -16,4 +16,4 @@
 其他
 1.TextInputLayout组件
 2.StaggeradGridLayoutManager（RecyclerView的瀑布流）
-3.RecyclerView.Adapter的局部组件刷新：notify(... , Object payload)
+3.RecyclerView.Adapter的局部组件刷新：notify(... , Object payload)实现刷新列表项具体某个字段数据
